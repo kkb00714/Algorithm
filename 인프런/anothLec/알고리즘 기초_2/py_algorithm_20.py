@@ -36,9 +36,33 @@
 # YES
 
 
+def check(a):
+    for i in range(9):
+        # 가로세로 체크를 위한 리스트 생성
+        ch1=[0]*10 
+        ch2=[0]*10
+        for j in range(9):
+            ch1[a[i][j]]=1 # 열 탐색
+            ch2[a[j][i]]=1 # 행 탐색
+        if sum(ch1)!=9 or sum(ch2)!=9:
+            # 두 체크리스트 중 중복이 하나라도 있으면 False
+            return False
+    for i in range(3): # 0, 1, 2
+        for j in range(3): # 0, 1, 2
+            # 그룹 탐색을 위한 리스트
+            ch3=[0]*10 
+            for k in range(3): # 0, 1, 2
+                for s in range(3): # 0, 1, 2
+                    ch3[a[i*3+k][j*3+s]]=1
+                    # i * 3 + k = 행
+                    # j * 3 + s = 열
+            if sum(ch3)!=9:
+                return False
+    return True
 
-
-
-
-
+a = [list(map(int, input().split())) for _ in range(1, 10)]
+if check(a):
+    print("YES")
+else:
+    print("NO")
 
