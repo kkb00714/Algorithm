@@ -31,4 +31,24 @@
 # 4 8 6 2 5 1 3 7
 
 
+n = int(input())
+a = list(map(int, input().split()))
+seq = [0] * n
 
+# 오름차 순으로 진행해야 한다고 생각해야 함 (1 ~ n)
+
+for i in range(n):
+    for j in range(n):
+        if a[i] == 0 and seq[j] == 0:
+        # a[i] 의 의미 => 자기 앞의 빈 공간을 확보했다는 의미
+        # seq[j] 가 비어있는 경우,
+        # seq[j]에 i + 1
+            seq[j] = i + 1
+            break # j를 break
+        elif seq[j] == 0:
+        # seq[j] 가 비어있는 경우 (빈 자리가 있는 경우)
+            a[i] -= 1
+            # a[i] 값을 하나 빼서 값을 넣음
+
+for x in seq:
+    print(x, end=' ')
