@@ -27,7 +27,7 @@ def is_valid_str(s):
             stack.push(char)
         elif char == ")":
             if stack.is_empty():
-                retun "NO"
+                return "NO"
             stack.pop()
 
     # 스택이 비어있다면 올바른 괄호 문자열, 아니라면 NO
