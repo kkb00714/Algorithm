@@ -11,7 +11,7 @@ class Stack:
         return not self.items
 
     def push(self, item):
-        self.items.append(items)
+        self.items.append(item)
 
     def pop(self):
         if self.is_empty():
